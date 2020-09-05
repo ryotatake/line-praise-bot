@@ -1,4 +1,4 @@
-require "sinatora"
+require "sinatra"
 require "line/bot"
 
 def client
