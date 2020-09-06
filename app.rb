@@ -1,5 +1,6 @@
 require "sinatra"
 require "line/bot"
+require "./message"
 
 def client
   @client ||= Line::Bot::Client.new{|config|
@@ -25,7 +26,7 @@ post "/callback" do
       when Line::Bot::Event::MessageType::Text
         message = {
           type: "text",
-          text: event.message["text"]
+          text: praise_message_to_text(event.message["text"])
         }
         client.reply_message(event["replyToken"], message)
       end
