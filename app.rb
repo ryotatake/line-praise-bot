@@ -9,7 +9,6 @@ def client
 end
 
 post "/callback" do
-  return "OK"
   body = request.body.read
 
   signature = request.env["HTTP_X_LINE_SIGNATURE"]
